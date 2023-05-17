@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 17:05:01 by hbelhadj          #+#    #+#             */
-/*   Updated: 2023/02/01 21:22:29 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2023/02/07 22:40:18 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,10 @@ int	main(int argc, char *argv[])
 {
 	int	b;
 
-	b = ft_atoi (argv[1]);
 	if (argc <= 2)
 		return (0);
-	if (b < 0)
+	b = ft_atoi (argv[1]);
+	if (b <= 0)
 		return (0);
 	send_char(argv[2], b);
 }

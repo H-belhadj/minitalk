@@ -1,31 +1,23 @@
-SOURCES = server.c client.c
-OBJECTS = $(SOURCES:.c=.o)
+CLIENT_SRCS := client.c
+SERVER_SRCS := server.c
+NAME := client
+NAMES := server
+CC := cc
+FLAGS := -Wall -Wextra -Werror
 
-CC = cc
-CFLAGS = 
+all: $(NAME) $(NAMES)
 
-%.o: %.c
-	$(CC) -c $(CFLAGS) $?
+$(NAME) : $(CLIENT_SRCS)
+			$(CC) $(FLAGS) $(CLIENT_SRCS) -o client
 
-NAME: server client 
+$(NAMES) : $(SERVER_SRCS)
+			$(CC) $(FLAGS) $(SERVER_SRCS) -o server
 
-all: $(NAME)
-
-
-server: server.o 
-	$(CC) -o $@ $< 
-
-client: client.o 
-	$(CC) -o $@ $< 
-
- 
 
 clean:
-	rm -f $(OBJECTS)
-	
+	rm -rf client
+	rm -rf server
+
 fclean: clean
-	rm -f server client 
 
-re: fclean all
-
-.PHONY: all  clean fclean re
+re: clean all

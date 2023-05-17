@@ -6,12 +6,11 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:49:48 by hbelhadj          #+#    #+#             */
-/*   Updated: 2023/01/30 21:56:54 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2023/02/07 22:35:14 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#include <stdio.h>
 
 void	ft_putnbr(int n)
 {
@@ -67,6 +66,7 @@ void	handle_sigusr(int signum, siginfo_t *info, void *context)
 	static int	i;
 	static int	pid = 0;
 
+	(void)context;
 	if (info->si_pid != pid)
 	{
 		pid = info->si_pid;
